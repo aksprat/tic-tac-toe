@@ -10,6 +10,9 @@ COPY . /app
 # Install Flask
 RUN pip install --no-cache-dir flask
 
+# Install gunicorn
+RUN gunicorn -w 4 -b 0.0.0.0:5000 app:app
+
 # Expose the port on which the Flask app will run
 EXPOSE 5000
 
